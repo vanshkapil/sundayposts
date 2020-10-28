@@ -4,19 +4,20 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="twitter:card" content="summary_large_image" /><!-- Begin Jekyll SEO tag v2.6.1 -->
-<title>API call function | SundayPosts</title>
+<title>Some Shopify GraphQL queries to get you started | SundayPosts</title>
 <meta name="generator" content="Jekyll v4.1.1" />
-<meta property="og:title" content="API call function" />
+<meta property="og:title" content="Some Shopify GraphQL queries to get you started" />
+<meta name="author" content="Vansh Kapil" />
 <meta property="og:locale" content="en_US" />
-<meta name="description" content="Posts of what and how I am learning to code. My interests are Chatbot development using RASA. Also dabbling with ML and DL." />
-<meta property="og:description" content="Posts of what and how I am learning to code. My interests are Chatbot development using RASA. Also dabbling with ML and DL." />
-<link rel="canonical" href="https://vanshkapil.github.io/sundayposts/2020/10/28/Shopify-GraphQL-Queries-Getting-Started.html" />
-<meta property="og:url" content="https://vanshkapil.github.io/sundayposts/2020/10/28/Shopify-GraphQL-Queries-Getting-Started.html" />
+<meta name="description" content="Noob way" />
+<meta property="og:description" content="Noob way" />
+<link rel="canonical" href="https://vanshkapil.github.io/sundayposts/shopify/2020/10/28/Shopify-GraphQL-Queries-Getting-Started.html" />
+<meta property="og:url" content="https://vanshkapil.github.io/sundayposts/shopify/2020/10/28/Shopify-GraphQL-Queries-Getting-Started.html" />
 <meta property="og:site_name" content="SundayPosts" />
 <meta property="og:type" content="article" />
 <meta property="article:published_time" content="2020-10-28T00:00:00-05:00" />
 <script type="application/ld+json">
-{"url":"https://vanshkapil.github.io/sundayposts/2020/10/28/Shopify-GraphQL-Queries-Getting-Started.html","@type":"BlogPosting","headline":"API call function","dateModified":"2020-10-28T00:00:00-05:00","datePublished":"2020-10-28T00:00:00-05:00","mainEntityOfPage":{"@type":"WebPage","@id":"https://vanshkapil.github.io/sundayposts/2020/10/28/Shopify-GraphQL-Queries-Getting-Started.html"},"description":"Posts of what and how I am learning to code. My interests are Chatbot development using RASA. Also dabbling with ML and DL.","@context":"https://schema.org"}</script>
+{"url":"https://vanshkapil.github.io/sundayposts/shopify/2020/10/28/Shopify-GraphQL-Queries-Getting-Started.html","@type":"BlogPosting","headline":"Some Shopify GraphQL queries to get you started","dateModified":"2020-10-28T00:00:00-05:00","datePublished":"2020-10-28T00:00:00-05:00","mainEntityOfPage":{"@type":"WebPage","@id":"https://vanshkapil.github.io/sundayposts/shopify/2020/10/28/Shopify-GraphQL-Queries-Getting-Started.html"},"author":{"@type":"Person","name":"Vansh Kapil"},"description":"Noob way","@context":"https://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 <link rel="stylesheet" href="/sundayposts/assets/css/style.css"><link type="application/atom+xml" rel="alternate" href="https://vanshkapil.github.io/sundayposts/feed.xml" title="SundayPosts" /><link rel="shortcut icon" type="image/x-icon" href="/sundayposts/images/favicon.ico"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Primer/15.2.0/primer.css" integrity="sha512-xTz2ys4coGAOz8vuV1NcQBkgVmKhsSEtjbqyMJbBHRplFuvKIUo6xhLHpAyPt9mfR6twHJgn9OgVLuqOvjeBhg==" crossorigin="anonymous" />
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css" integrity="sha512-1PKOgIY59xJ8Co8+NE6FZ+LOAZKjy+KY8iq0G4B3CyeY6wYHN3yt9PW0XpSriVlkMXe40PTKnXrLnZ9+fkDaog==" crossorigin="anonymous" />
@@ -71,9 +72,11 @@ window.onload = wrap_img;
         <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
 
   <header class="post-header">
-    <h1 class="post-title p-name" itemprop="name headline">API call function</h1><p class="post-meta post-meta-title"><time class="dt-published" datetime="2020-10-28T00:00:00-05:00" itemprop="datePublished">
+    <h1 class="post-title p-name" itemprop="name headline">Some Shopify GraphQL queries to get you started</h1><p class="page-description">Noob way</p><p class="post-meta post-meta-title"><time class="dt-published" datetime="2020-10-28T00:00:00-05:00" itemprop="datePublished">
         Oct 28, 2020
-      </time>
+      </time>• 
+          <span itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <span class="p-author h-card" itemprop="name">Vansh Kapil</span></span>
        • <span class="read-time" title="Estimated read time">
     
     
@@ -81,6 +84,13 @@ window.onload = wrap_img;
     
 </span></p>
 
+    
+      <p class="category-tags"><i class="fas fa-tags category-tags-icon"></i></i> 
+      
+        <a class="category-tags-link" href="/sundayposts/categories/#shopify">shopify</a>
+        
+      
+      </p>
     
 
     
@@ -108,7 +118,13 @@ window.onload = wrap_img;
       </header>
 
   <div class="post-content e-content" itemprop="articleBody">
-    <!--
+    <ul class="section-nav">
+<li class="toc-entry toc-h1"><a href="#API-call-function">API call function </a></li>
+<li class="toc-entry toc-h1"><a href="#Getting-product-count-for-a-collection.">Getting product count for a collection. </a></li>
+<li class="toc-entry toc-h1"><a href="#Getting-products-from-a-collection">Getting products from a collection </a></li>
+<li class="toc-entry toc-h1"><a href="#Fetch-List-of-Collections">Fetch List of Collections </a></li>
+<li class="toc-entry toc-h1"><a href="#Get-product-Updation-details">Get product Updation details </a></li>
+</ul><!--
 #################################################
 ### THIS FILE WAS AUTOGENERATED! DO NOT EDIT! ###
 #################################################
@@ -117,24 +133,21 @@ window.onload = wrap_img;
 
 <div class="container" id="notebook-container">
         
-<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Some-Shopify-GraphQL-queries-to-get-you-started">Some Shopify GraphQL queries to get you started<a class="anchor-link" href="#Some-Shopify-GraphQL-queries-to-get-you-started"> </a></h1><blockquote><p>Noob way</p>
-</blockquote>
-<ul>
-<li>toc:true- branch: master</li>
-<li>badges: true</li>
-<li>comments: true</li>
-<li>author: Vansh Kapil</li>
-<li>categories: [shopify]</li>
-</ul>
+<p>I have been trying to connect my AI shopping bot with Shopify API. This got me introduced to GraphQL. Here are some of the queries that I tried to get started.</p>
 
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>I have been trying to connect my AI shopping bot with Shopify API. This got me introduced to GraphQL. Here are some of the queries that I tried to get started.</p>
+<h1 id="API-call-function">
+<a class="anchor" href="#API-call-function" aria-hidden="true"><span class="octicon octicon-link"></span></a>API call function<a class="anchor-link" href="#API-call-function"> </a>
+</h1>
+<p>We call this function with query as parameters to get the json object as response from Shopify.</p>
 
 </div>
 </div>
@@ -147,22 +160,22 @@ window.onload = wrap_img;
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">gq_query</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">variables</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;</span>
+    <span class="sd">"""</span>
 <span class="sd">    Queries the Shopify</span>
 <span class="sd">    :param data:</span>
 <span class="sd">    :param variables:</span>
 <span class="sd">    :return:</span>
-<span class="sd">    &quot;&quot;&quot;</span>
+<span class="sd">    """</span>
     <span class="n">out</span> <span class="o">=</span> <span class="p">[]</span>  <span class="c1"># the final output list of dictionaries to be converted to a DF</span>
-    <span class="n">shop</span> <span class="o">=</span> <span class="s1">&#39;&lt;Your Store name&gt;&#39;</span>
-    <span class="n">token</span> <span class="o">=</span> <span class="s1">&#39;&lt;Your store password&gt;&#39;</span>
+    <span class="n">shop</span> <span class="o">=</span> <span class="s1">'&lt;Your Store name&gt;'</span>
+    <span class="n">token</span> <span class="o">=</span> <span class="s1">'&lt;Your store password&gt;'</span>
     <span class="n">headers</span> <span class="o">=</span> <span class="p">{</span>
-        <span class="s1">&#39;Content-Type&#39;</span><span class="p">:</span> <span class="s1">&#39;application/json&#39;</span><span class="p">,</span>
-        <span class="s1">&#39;X-Shopify-Access-Token&#39;</span><span class="p">:</span> <span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">token</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">,</span>
+        <span class="s1">'Content-Type'</span><span class="p">:</span> <span class="s1">'application/json'</span><span class="p">,</span>
+        <span class="s1">'X-Shopify-Access-Token'</span><span class="p">:</span> <span class="sa">f</span><span class="s1">'</span><span class="si">{</span><span class="n">token</span><span class="si">}</span><span class="s1">'</span><span class="p">,</span>
     <span class="p">}</span>
 
-    <span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;https://</span><span class="si">{</span><span class="n">shop</span><span class="si">}</span><span class="s1">.myshopify.com/admin/api/2020-10/graphql.json&#39;</span><span class="p">,</span>
-                             <span class="n">json</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;query&#39;</span><span class="p">:</span> <span class="n">data</span><span class="p">,</span> <span class="s1">&#39;variables&#39;</span><span class="p">:</span> <span class="n">variables</span><span class="p">},</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">)</span>
+    <span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="sa">f</span><span class="s1">'https://</span><span class="si">{</span><span class="n">shop</span><span class="si">}</span><span class="s1">.myshopify.com/admin/api/2020-10/graphql.json'</span><span class="p">,</span>
+                             <span class="n">json</span><span class="o">=</span><span class="p">{</span><span class="s1">'query'</span><span class="p">:</span> <span class="n">data</span><span class="p">,</span> <span class="s1">'variables'</span><span class="p">:</span> <span class="n">variables</span><span class="p">},</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">)</span>
     <span class="k">return</span> <span class="n">response</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
 </pre></div>
 
@@ -173,9 +186,13 @@ window.onload = wrap_img;
 </div>
     
 
-<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Getting-product-count-for-a-collection.">Getting product count for a collection.<a class="anchor-link" href="#Getting-product-count-for-a-collection."> </a></h1><p>You may note that I am formatting the query as string and not passing the variables in query variable. 
+<h1 id="Getting-product-count-for-a-collection.">
+<a class="anchor" href="#Getting-product-count-for-a-collection." aria-hidden="true"><span class="octicon octicon-link"></span></a>Getting product count for a collection.<a class="anchor-link" href="#Getting-product-count-for-a-collection."> </a>
+</h1>
+<p>You may note that I am formatting the query as string and not passing the variables in query variable. 
 This is not the best practice, but it got me started.</p>
 
 </div>
@@ -189,20 +206,20 @@ This is not the best practice, but it got me started.</p>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">get_productcount_fromCollection</span><span class="p">(</span><span class="n">handle</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;</span>
+    <span class="sd">"""</span>
 <span class="sd">    returns product count for given collection</span>
 <span class="sd">    :param handle:</span>
 <span class="sd">    :return: int count</span>
-<span class="sd">    &quot;&quot;&quot;</span>
-    <span class="n">data</span> <span class="o">=</span> <span class="s1">&#39;&#39;&#39;</span>
+<span class="sd">    """</span>
+    <span class="n">data</span> <span class="o">=</span> <span class="s1">'''</span>
 <span class="s1">           {{</span>
-<span class="s1">              collectionByHandle(handle: &quot;</span><span class="si">{}</span><span class="s1">&quot;){{</span>
+<span class="s1">              collectionByHandle(handle: "</span><span class="si">{}</span><span class="s1">"){{</span>
 <span class="s1">                productsCount</span>
 
 <span class="s1">              }}</span>
-<span class="s1">            }}&#39;&#39;&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">handle</span><span class="p">)</span>
-    <span class="n">variable</span> <span class="o">=</span> <span class="s1">&#39;&#39;&#39; &#39;&#39;&#39;</span>
-    <span class="k">return</span> <span class="n">gq_query</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">variable</span><span class="p">)</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;data&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;collectionByHandle&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;productsCount&#39;</span><span class="p">)</span>
+<span class="s1">            }}'''</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">handle</span><span class="p">)</span>
+    <span class="n">variable</span> <span class="o">=</span> <span class="s1">''' '''</span>
+    <span class="k">return</span> <span class="n">gq_query</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">variable</span><span class="p">)</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">'data'</span><span class="p">)</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">'collectionByHandle'</span><span class="p">)</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">'productsCount'</span><span class="p">)</span>
 </pre></div>
 
     </div>
@@ -212,9 +229,13 @@ This is not the best practice, but it got me started.</p>
 </div>
     
 
-<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Getting-products-from-a-collection">Getting products from a collection<a class="anchor-link" href="#Getting-products-from-a-collection"> </a></h1><p>This query is tries to fetch upto 50 products from the given collection handle. You can change the number of products and even create it as a variable. Be mindfull of the query cost. 
+<h1 id="Getting-products-from-a-collection">
+<a class="anchor" href="#Getting-products-from-a-collection" aria-hidden="true"><span class="octicon octicon-link"></span></a>Getting products from a collection<a class="anchor-link" href="#Getting-products-from-a-collection"> </a>
+</h1>
+<p>This query is tries to fetch upto 50 products from the given collection handle. You can change the number of products and even create it as a variable. Be mindfull of the query cost. 
 This works well if you have fewer products in a collection.</p>
 
 </div>
@@ -228,19 +249,19 @@ This works well if you have fewer products in a collection.</p>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">get_products_fromCollection</span><span class="p">(</span><span class="n">handle</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;</span>
+    <span class="sd">"""</span>
 <span class="sd">    Get all the products for given collection</span>
 <span class="sd">    :param handle:</span>
 <span class="sd">    :return: List of dicts with title:title and price:price</span>
-<span class="sd">    &quot;&quot;&quot;</span>
+<span class="sd">    """</span>
     
     <span class="n">obj</span> <span class="o">=</span> <span class="p">[]</span>
     <span class="n">num</span> <span class="o">=</span> <span class="n">get_productcount_fromCollection</span><span class="p">(</span><span class="n">handle</span><span class="p">)</span>
     
 
-    <span class="n">data</span> <span class="o">=</span> <span class="sa">f</span><span class="s1">&#39;&#39;&#39;</span>
+    <span class="n">data</span> <span class="o">=</span> <span class="sa">f</span><span class="s1">'''</span>
 <span class="s1">           query </span><span class="se">{{</span><span class="s1"></span>
-<span class="s1">              collectionByHandle(handle: &quot;</span><span class="si">{</span><span class="n">handle</span><span class="si">}</span><span class="s1">&quot;)</span><span class="se">{{</span><span class="s1"></span>
+<span class="s1">              collectionByHandle(handle: "</span><span class="si">{</span><span class="n">handle</span><span class="si">}</span><span class="s1">")</span><span class="se">{{</span><span class="s1"></span>
 <span class="s1">                products(first: 50)</span><span class="se">{{</span><span class="s1"></span>
 <span class="s1">                   pageInfo </span><span class="se">{{</span><span class="s1"></span>
 <span class="s1">      hasNextPage</span>
@@ -269,8 +290,8 @@ This works well if you have fewer products in a collection.</p>
 <span class="s1">                </span><span class="se">}}</span><span class="s1"></span>
 
 <span class="s1">              </span><span class="se">}}</span><span class="s1"></span>
-<span class="s1">            </span><span class="se">}}</span><span class="s1">&#39;&#39;&#39;</span>
-    <span class="n">variable</span> <span class="o">=</span> <span class="s1">&#39;&#39;&#39; &#39;&#39;&#39;</span>
+<span class="s1">            </span><span class="se">}}</span><span class="s1">'''</span>
+    <span class="n">variable</span> <span class="o">=</span> <span class="s1">''' '''</span>
     <span class="n">data_dict</span> <span class="o">=</span> <span class="n">gq_query</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">variable</span><span class="p">)</span>
     
     
@@ -283,7 +304,8 @@ This works well if you have fewer products in a collection.</p>
 </div>
     
 
-<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>But what if there are thousands of products and you cannot fetch them in 1 call. That where we make use of <em>pageInfo and cursor</em> .</p>
 
@@ -297,14 +319,14 @@ This works well if you have fewer products in a collection.</p>
 
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span>    <span class="k">while</span> <span class="n">data_dict</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;data&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;collectionByHandle&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;products&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;pageInfo&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;hasNextPage&#39;</span><span class="p">):</span>
+<div class=" highlight hl-ipython3"><pre><span></span>    <span class="k">while</span> <span class="n">data_dict</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">'data'</span><span class="p">)</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">'collectionByHandle'</span><span class="p">)</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">'products'</span><span class="p">)</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">'pageInfo'</span><span class="p">)</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">'hasNextPage'</span><span class="p">):</span>
         <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
    
-        <span class="n">cursor</span> <span class="o">=</span> <span class="n">data_dict</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;data&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;collectionByHandle&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;products&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;edges&#39;</span><span class="p">)[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;cursor&#39;</span><span class="p">)</span>
-        <span class="n">data</span> <span class="o">=</span> <span class="sa">f</span><span class="s1">&#39;&#39;&#39;</span>
+        <span class="n">cursor</span> <span class="o">=</span> <span class="n">data_dict</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">'data'</span><span class="p">)</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">'collectionByHandle'</span><span class="p">)</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">'products'</span><span class="p">)</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">'edges'</span><span class="p">)[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">'cursor'</span><span class="p">)</span>
+        <span class="n">data</span> <span class="o">=</span> <span class="sa">f</span><span class="s1">'''</span>
 <span class="s1">                   query </span><span class="se">{{</span><span class="s1"></span>
-<span class="s1">                      collectionByHandle(handle: &quot;</span><span class="si">{</span><span class="n">handle</span><span class="si">}</span><span class="s1">&quot;)</span><span class="se">{{</span><span class="s1"></span>
-<span class="s1">                        products(first: 50, after: &quot;</span><span class="si">{</span><span class="n">cursor</span><span class="si">}</span><span class="s1">&quot;)</span><span class="se">{{</span><span class="s1"></span>
+<span class="s1">                      collectionByHandle(handle: "</span><span class="si">{</span><span class="n">handle</span><span class="si">}</span><span class="s1">")</span><span class="se">{{</span><span class="s1"></span>
+<span class="s1">                        products(first: 50, after: "</span><span class="si">{</span><span class="n">cursor</span><span class="si">}</span><span class="s1">")</span><span class="se">{{</span><span class="s1"></span>
 <span class="s1">                           pageInfo </span><span class="se">{{</span><span class="s1"></span>
 <span class="s1">              hasNextPage</span>
 <span class="s1">              hasPreviousPage</span>
@@ -332,8 +354,8 @@ This works well if you have fewer products in a collection.</p>
 <span class="s1">                        </span><span class="se">}}</span><span class="s1"></span>
 
 <span class="s1">                      </span><span class="se">}}</span><span class="s1"></span>
-<span class="s1">                    </span><span class="se">}}</span><span class="s1">&#39;&#39;&#39;</span>
-        <span class="n">variable</span> <span class="o">=</span> <span class="s1">&#39;&#39;&#39; &#39;&#39;&#39;</span>
+<span class="s1">                    </span><span class="se">}}</span><span class="s1">'''</span>
+        <span class="n">variable</span> <span class="o">=</span> <span class="s1">''' '''</span>
         <span class="n">data_dict</span> <span class="o">=</span> <span class="n">gq_query</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">variable</span><span class="p">)</span>
 </pre></div>
 
@@ -344,7 +366,8 @@ This works well if you have fewer products in a collection.</p>
 </div>
     
 
-<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>You may notice an attribute <em>pageInfo</em>  in the query which has a field called <em>hasNextPage</em> . hasNextPage gives out Boolean result (True or False). If its True it means there another set of products waiting on the next page</p>
 
@@ -358,7 +381,7 @@ This works well if you have fewer products in a collection.</p>
 
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">data_dict</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;data&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;collectionByHandle&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;products&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;pageInfo&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;hasNextPage&#39;</span><span class="p">)</span> 
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">data_dict</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">'data'</span><span class="p">)</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">'collectionByHandle'</span><span class="p">)</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">'products'</span><span class="p">)</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">'pageInfo'</span><span class="p">)</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">'hasNextPage'</span><span class="p">)</span> 
 </pre></div>
 
     </div>
@@ -368,7 +391,8 @@ This works well if you have fewer products in a collection.</p>
 </div>
     
 
-<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>Once we recognize that there is another page of products we need to move that page without re-reading the current batch of products. The current batch of products is recognized by something called <em>cursor</em></p>
 
@@ -382,7 +406,7 @@ This works well if you have fewer products in a collection.</p>
 
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">cursor</span> <span class="o">=</span> <span class="n">data_dict</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;data&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;collectionByHandle&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;products&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;edges&#39;</span><span class="p">)[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;cursor&#39;</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">cursor</span> <span class="o">=</span> <span class="n">data_dict</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">'data'</span><span class="p">)</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">'collectionByHandle'</span><span class="p">)</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">'products'</span><span class="p">)</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">'edges'</span><span class="p">)[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">'cursor'</span><span class="p">)</span>
 </pre></div>
 
     </div>
@@ -392,7 +416,8 @@ This works well if you have fewer products in a collection.</p>
 </div>
     
 
-<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>The above call pulls the cursor of last product fetch, so we know that we have to fetch products after this cursor.</p>
 
@@ -407,8 +432,8 @@ This works well if you have fewer products in a collection.</p>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">query</span> <span class="p">{{</span>
-                      <span class="n">collectionByHandle</span><span class="p">(</span><span class="n">handle</span><span class="p">:</span> <span class="s2">&quot;</span><span class="si">{handle}</span><span class="s2">&quot;</span><span class="p">){{</span>
-                        <span class="n">products</span><span class="p">(</span><span class="n">first</span><span class="p">:</span> <span class="mi">50</span><span class="p">,</span> <span class="n">after</span><span class="p">:</span> <span class="s2">&quot;</span><span class="si">{cursor}</span><span class="s2">&quot;</span><span class="p">){{</span>
+                      <span class="n">collectionByHandle</span><span class="p">(</span><span class="n">handle</span><span class="p">:</span> <span class="s2">"</span><span class="si">{handle}</span><span class="s2">"</span><span class="p">){{</span>
+                        <span class="n">products</span><span class="p">(</span><span class="n">first</span><span class="p">:</span> <span class="mi">50</span><span class="p">,</span> <span class="n">after</span><span class="p">:</span> <span class="s2">"</span><span class="si">{cursor}</span><span class="s2">"</span><span class="p">){{</span>
                            <span class="n">pageInfo</span> <span class="p">{{</span>
               <span class="n">hasNextPage</span>
               <span class="n">hasPreviousPage</span>
@@ -422,20 +447,25 @@ This works well if you have fewer products in a collection.</p>
 </div>
     
 
-<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>products(first: 50, after: "{cursor}") Asks for 50 products after the given cursor</p>
 
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Fetch-List-of-Collections">Fetch List of Collections<a class="anchor-link" href="#Fetch-List-of-Collections"> </a></h1>
+<h1 id="Fetch-List-of-Collections">
+<a class="anchor" href="#Fetch-List-of-Collections" aria-hidden="true"><span class="octicon octicon-link"></span></a>Fetch List of Collections<a class="anchor-link" href="#Fetch-List-of-Collections"> </a>
+</h1>
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>This function returns upto 200 collection's handles as a list</p>
 
@@ -450,12 +480,12 @@ This works well if you have fewer products in a collection.</p>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">get_collections_list</span><span class="p">():</span>
-    <span class="sd">&quot;&quot;&quot;</span>
+    <span class="sd">"""</span>
 <span class="sd">    gets handles of all the collections of the store.</span>
 <span class="sd">    :return: list of handles</span>
-<span class="sd">    &quot;&quot;&quot;</span>
+<span class="sd">    """</span>
 
-    <span class="n">data</span> <span class="o">=</span> <span class="sa">f</span><span class="s1">&#39;&#39;&#39;</span>
+    <span class="n">data</span> <span class="o">=</span> <span class="sa">f</span><span class="s1">'''</span>
 <span class="s1">                </span><span class="se">{{</span><span class="s1"></span>
 <span class="s1">                </span>
 <span class="s1">                collections(first: 200)</span><span class="se">{{</span><span class="s1"></span>
@@ -468,12 +498,12 @@ This works well if you have fewer products in a collection.</p>
 <span class="s1">                  </span>
 <span class="s1">                </span><span class="se">}}</span><span class="s1"></span>
 <span class="s1">                </span>
-<span class="s1">                &#39;&#39;&#39;</span>
-    <span class="n">variable</span> <span class="o">=</span> <span class="s1">&#39;&#39;&#39; &#39;&#39;&#39;</span>
+<span class="s1">                '''</span>
+    <span class="n">variable</span> <span class="o">=</span> <span class="s1">''' '''</span>
     <span class="n">data_dict</span> <span class="o">=</span> <span class="n">gq_query</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">variable</span><span class="p">)</span>
     <span class="n">handle_list</span><span class="o">=</span><span class="p">[]</span>
-    <span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">data_dict</span><span class="p">[</span><span class="s1">&#39;data&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;collections&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;edges&#39;</span><span class="p">))):</span>
-        <span class="n">handle_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">data_dict</span><span class="p">[</span><span class="s1">&#39;data&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;collections&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;edges&#39;</span><span class="p">)[</span><span class="n">n</span><span class="p">]</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;node&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;handle&#39;</span><span class="p">))</span>
+    <span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">data_dict</span><span class="p">[</span><span class="s1">'data'</span><span class="p">]</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">'collections'</span><span class="p">)</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">'edges'</span><span class="p">))):</span>
+        <span class="n">handle_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">data_dict</span><span class="p">[</span><span class="s1">'data'</span><span class="p">]</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">'collections'</span><span class="p">)</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">'edges'</span><span class="p">)[</span><span class="n">n</span><span class="p">]</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">'node'</span><span class="p">)</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">'handle'</span><span class="p">))</span>
     <span class="k">return</span> <span class="n">handle_list</span>
 </pre></div>
 
@@ -484,9 +514,13 @@ This works well if you have fewer products in a collection.</p>
 </div>
     
 
-<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Get-product-Updation-details">Get product Updation details<a class="anchor-link" href="#Get-product-Updation-details"> </a></h1><p>There could be a situation wherein you may want to check when a product was last updated/modified or you may want to fetch products updated after a certain timestamp. This can be accomplished by looking for updatedAt attribute.</p>
+<h1 id="Get-product-Updation-details">
+<a class="anchor" href="#Get-product-Updation-details" aria-hidden="true"><span class="octicon octicon-link"></span></a>Get product Updation details<a class="anchor-link" href="#Get-product-Updation-details"> </a>
+</h1>
+<p>There could be a situation wherein you may want to check when a product was last updated/modified or you may want to fetch products updated after a certain timestamp. This can be accomplished by looking for updatedAt attribute.</p>
 
 </div>
 </div>
@@ -499,16 +533,16 @@ This works well if you have fewer products in a collection.</p>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">get_updated_products</span><span class="p">():</span>
-    <span class="sd">&quot;&quot;&quot;</span>
+    <span class="sd">"""</span>
 <span class="sd">    gets updated products based on updateAt timestamp from shopify API</span>
 <span class="sd">    :return:</span>
-<span class="sd">    &quot;&quot;&quot;</span>
+<span class="sd">    """</span>
 
 
-    <span class="n">data</span> <span class="o">=</span> <span class="sa">f</span><span class="s1">&#39;&#39;&#39;</span>
+    <span class="n">data</span> <span class="o">=</span> <span class="sa">f</span><span class="s1">'''</span>
 <span class="s1">               </span><span class="se">{{</span><span class="s1"></span>
 <span class="s1">                </span>
-<span class="s1">                  products(query:&quot;updated_at:&gt;</span><span class="si">{</span><span class="n">last_update_timestamp</span><span class="si">}</span><span class="s1">&quot; first:800) </span><span class="se">{{</span><span class="s1"></span>
+<span class="s1">                  products(query:"updated_at:&gt;</span><span class="si">{</span><span class="n">last_update_timestamp</span><span class="si">}</span><span class="s1">" first:800) </span><span class="se">{{</span><span class="s1"></span>
 <span class="s1">                    edges </span><span class="se">{{</span><span class="s1"></span>
 <span class="s1">                      node </span><span class="se">{{</span><span class="s1"></span>
 <span class="s1">                         id</span>
@@ -529,8 +563,8 @@ This works well if you have fewer products in a collection.</p>
 <span class="s1">                  </span><span class="se">}}</span><span class="s1"></span>
 <span class="s1">                  </span>
 <span class="s1">                </span><span class="se">}}</span><span class="s1"></span>
-<span class="s1">            &#39;&#39;&#39;</span>
-    <span class="n">variable</span> <span class="o">=</span> <span class="s1">&#39;&#39;&#39; &#39;&#39;&#39;</span>
+<span class="s1">            '''</span>
+    <span class="n">variable</span> <span class="o">=</span> <span class="s1">''' '''</span>
     <span class="n">data_dict</span> <span class="o">=</span> <span class="n">gq_query</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">variable</span><span class="p">)</span>
 </pre></div>
 
@@ -541,14 +575,16 @@ This works well if you have fewer products in a collection.</p>
 </div>
     
 
-<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>last_update_timestamp is the variable for timestamp</p>
 
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>Thats it for now, I will update this post as an when I use more queries in my project</p>
 
@@ -559,7 +595,15 @@ This works well if you have fewer products in a collection.</p>
 
 
 
-  </div><a class="u-url" href="/sundayposts/2020/10/28/Shopify-GraphQL-Queries-Getting-Started.html" hidden></a>
+  </div><!-- from https://github.com/utterance/utterances -->
+<script src="https://utteranc.es/client.js"
+        repo="vanshkapil/sundayposts"
+        issue-term="title"
+        label="blogpost-comment"
+        theme="github-light"
+        crossorigin="anonymous"
+        async>
+</script><a class="u-url" href="/sundayposts/shopify/2020/10/28/Shopify-GraphQL-Queries-Getting-Started.html" hidden></a>
 </article>
       </div>
     </main><footer class="site-footer h-card">
