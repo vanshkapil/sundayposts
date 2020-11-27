@@ -2,9 +2,9 @@
 title: "Adding Chat widget for RASA bot"
 description: "Tips and tricks collated from various sources "
 layout: post
-toc: false
+toc: true
 comments: true
-image: images/Adding-Chat-widget-for-RASA-bot/your_image.png
+image: images/logo.png
 hide: false
 search_exclude: false
 categories: [RASA]
