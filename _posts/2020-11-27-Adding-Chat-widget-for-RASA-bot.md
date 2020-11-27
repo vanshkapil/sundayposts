@@ -4,7 +4,6 @@ description: "Tips and tricks collated from various sources"
 layout: post
 toc: true
 comments: true
-image: images/logo.png
 hide: false
 search_exclude: true
 categories: [RASA]
