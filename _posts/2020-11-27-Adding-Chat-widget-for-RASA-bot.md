@@ -1,12 +1,12 @@
----
+--- 
 title: "Adding Chat widget for RASA bot"
-description: "Tips and tricks collated from various sources "
+description: "Tips and tricks collated from various sources"
 layout: post
 toc: true
 comments: true
-image: images/some_folder/logo.png
+image: images/logo.png
 hide: false
-search_exclude: false
+search_exclude: true
 categories: [RASA]
 metadata_key1: metadata_value1
 metadata_key2: metadata_value2
