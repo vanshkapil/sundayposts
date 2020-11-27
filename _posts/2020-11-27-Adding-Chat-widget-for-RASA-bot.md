@@ -73,237 +73,235 @@ step 4 - update URL [http://localhost:5005](http://localhost:5005/) in html ( sa
 
 ### In case bot is on server, for example zuzu
 
-    ```jsx
-    socketUrl: "https://zuzu.sundaybots.com"
-    ```
+```jsx
+socketUrl: "https://zuzu.sundaybots.com"
+```
 
 ### Directing chatbot according to the page
 
-    ```jsx
-    initPayload: window.location.pathname,
-    ```
+```jsx
+initPayload: window.location.pathname,
+```
 
-    When a page loads , the above parameter will send the pathname of the current page. 
+When a page loads , the above parameter will send the pathname of the current page. 
 
-    ```jsx
-    initPayload: window.location.href,
-    ```
+```jsx
+initPayload: window.location.href,
+```
 
-    This passes the entire URL 
+This passes the entire URL 
 
-    Detecting the current page, bot can initiate an intent.
+Detecting the current page, bot can initiate an intent.
 
-    If the bot is already initialized, add the below code after **WebChat.default.init()** 
+If the bot is already initialized, add the below code after **WebChat.default.init()** 
 
-    ```jsx
-    var locn = ['/check_url{"page_url":"',window.location.href,'"}'].join('')
-      WebChat.send(locn)
-    ```
+```jsx
+var locn = ['/check_url{"page_url":"',window.location.href,'"}'].join('')
+WebChat.send(locn)
+```
 
-    This will send the current URL to RASA without printing the text on chat.
+This will send the current URL to RASA without printing the text on chat.
 
-    More Details [https://github.com/botfront/rasa-webchat#api](https://github.com/botfront/rasa-webchat#api)
+More Details [https://github.com/botfront/rasa-webchat#api](https://github.com/botfront/rasa-webchat#api)
 
 ### Opening chat widget on page load
 
-    ```jsx
-    window.onload = WebChat.open; 
-    ```
+```jsx
+window.onload = WebChat.open; 
+```
 
-    Adding this command before widget function. 
+Adding this command before widget function. 
 
-    code looks like
+code looks like
 
-    ```jsx
-    <script>
-      window.onload = WebChat.open;
-      WebChat.default.init({
-        selector: "#webchat",
-    .
-    .
+```jsx
+<script>
+  window.onload = WebChat.open;
+  WebChat.default.init({
+    selector: "#webchat",
 
-    ```
+```
 
 ### Creating a hyperlink in chat widget
 
-    ```jsx
-    [Sundaybots](https://www.sundaybots.com/)
+```jsx
+[Sundaybots](https://www.sundaybots.com/)
 
-    [TITLE](URL)
-    ```
+[TITLE](URL)
+```
 
 ### Carousel in Chat widget
 
-    ```jsx
-    	test_carousel = {
-                "type": "template",
-                "payload": {
-                    "template_type": "generic",
-                    "elements": [{
-                        "title": "Golf",
-                        "subtitle": "Super Slow Sport",
-                        "image_url": "https://static01.nyt.com/images/2020/07/23/sports/23golf-wie-big/23golf-wie-big-videoSixteenByNineJumbo1600.jpg",
+```jsx
+	test_carousel = {
+            "type": "template",
+            "payload": {
+                "template_type": "generic",
+                "elements": [{
+                    "title": "Golf",
+                    "subtitle": "Super Slow Sport",
+                    "image_url": "https://static01.nyt.com/images/2020/07/23/sports/23golf-wie-big/23golf-wie-big-videoSixteenByNineJumbo1600.jpg",
+                    "buttons": [{
+                        "title": "Golf Link name",
+                        "url": "https://www.golfchannel.com/",
+                        "type": "web_url"
+                    },
+                        {
+                            "title": "Golf postback name",
+                            "type": "postback",
+                            "payload": "/greet"
+                        }
+                    ]
+                },
+                    {
+                        "title": "Cricket",
+                        "subtitle": "Best Game in Town",
+                        "image_url": "https://nnimgt-a.akamaihd.net/transform/v1/crop/frm/silverstone-feed-data/67c54b2a-b43b-4cbd-9a83-cb5208d9a5b5.jpg/r0_0_800_600_w1200_h678_fmax.jpg",
                         "buttons": [{
-                            "title": "Golf Link name",
-                            "url": "https://www.golfchannel.com/",
+                            "title": "Cricket Link name",
+                            "url": "https://youtu.be/_imizBMHN0w",
                             "type": "web_url"
                         },
                             {
-                                "title": "Golf postback name",
+                                "title": "Cricket postback name",
                                 "type": "postback",
                                 "payload": "/greet"
                             }
                         ]
-                    },
-                        {
-                            "title": "Cricket",
-                            "subtitle": "Best Game in Town",
-                            "image_url": "https://nnimgt-a.akamaihd.net/transform/v1/crop/frm/silverstone-feed-data/67c54b2a-b43b-4cbd-9a83-cb5208d9a5b5.jpg/r0_0_800_600_w1200_h678_fmax.jpg",
-                            "buttons": [{
-                                "title": "Cricket Link name",
-                                "url": "https://youtu.be/_imizBMHN0w",
-                                "type": "web_url"
-                            },
-                                {
-                                    "title": "Cricket postback name",
-                                    "type": "postback",
-                                    "payload": "/greet"
-                                }
-                            ]
-                        }
-                    ]
-                }
+                    }
+                ]
             }
-            dispatcher.utter_message(attachment=test_carousel)
-    ```
+        }
+        dispatcher.utter_message(attachment=test_carousel)
+```
 
 ### Color Font and widget styling
 
-    ```jsx
-    <style>
-    		div.rw-message-text
-    	{
-    		font-size: 12px;
-    	}
-    	div.rw-header.rw-with-subtitle{
-    		background-color: rebeccapurple;
-    	}
-    	.rw-open-launcher{
-    		background: url("https://static.wixstatic.com/media/7309b2_23f0b6a0511741648ca7b21acfb1fa6d~mv2.png") no-repeat;
-    	}
-    	.rw-conversation-container .rw-response{
-    		background-color: light;
-    	}
+```jsx
+<style>
+		div.rw-message-text
+	{
+		font-size: 12px;
+	}
+	div.rw-header.rw-with-subtitle{
+		background-color: rebeccapurple;
+	}
+	.rw-open-launcher{
+		background: url("https://static.wixstatic.com/media/7309b2_23f0b6a0511741648ca7b21acfb1fa6d~mv2.png") no-repeat;
+	}
+	.rw-conversation-container .rw-response{
+		background-color: light;
+	}
 
-    	.rw-conversation-container .rw-client{
-    	    background-color: rebeccapurple;
+	.rw-conversation-container .rw-client{
+	    background-color: rebeccapurple;
 
-    	}
-    	.rw-widget-container .rw-launcher{
-    	    background-color: rebeccapurple;
-    	}
+	}
+	.rw-widget-container .rw-launcher{
+	    background-color: rebeccapurple;
+	}
 
-    	</style>
-    ```
+	</style>
+```
 
-    **To change quick replies and properties**
+**To change quick replies and properties**
 
-    ![]({{site.baseurl}}/images/Adding-Chat-widget-for-RASA-bot/Untitled1.png "image")
+![]({{site.baseurl}}/images/Adding-Chat-widget-for-RASA-bot/Untitled1.png "image")
 
-    ```jsx
-    .rw-conversation-container .rw-replies {
-            display:inline-block;
-        }
-    .rw-conversation-container .rw-reply{
-            display:block;
-            text-align: center;
-            color: green;
-            border-color: green;
-    				font-size: 14;
-            font-weight: bold;
+```jsx
+.rw-conversation-container .rw-replies {
+        display:inline-block;
+    }
+.rw-conversation-container .rw-reply{
+        display:block;
+        text-align: center;
+        color: green;
+        border-color: green;
+				font-size: 14;
+        font-weight: bold;
 
-        }
-    ```
+    }
+```
 
-    **Button Background color**
-    ![]({{site.baseurl}}/images/Adding-Chat-widget-for-RASA-bot/Untitled2.png "image")
+**Button Background color**
+![]({{site.baseurl}}/images/Adding-Chat-widget-for-RASA-bot/Untitled2.png "image")
 
 
-    ```jsx
-    .rw-widget-container .rw-launcher{
-    	    background-color: green;
-    	}
-    ```
+```jsx
+.rw-widget-container .rw-launcher{
+	    background-color: green;
+	}
+```
 
-    **Header Banner**
+**Header Banner**
 
-    ![]({{site.baseurl}}/images/Adding-Chat-widget-for-RASA-bot/Untitled3.png "image")
+![]({{site.baseurl}}/images/Adding-Chat-widget-for-RASA-bot/Untitled3.png "image")
 
-    ```jsx
-    div.rw-header.rw-with-subtitle{
-    		background-color: rebeccapurple;
+```jsx
+div.rw-header.rw-with-subtitle{
+		background-color: rebeccapurple;
 
-    	}
-    ```
+	}
+```
 
-    **Background bubble on the bot reply**
+**Background bubble on the bot reply**
 
-    (light grey in this example)
+(light grey in this example)
 
-    ![]({{site.baseurl}}/images/Adding-Chat-widget-for-RASA-bot/Untitled4.png "image")
+![]({{site.baseurl}}/images/Adding-Chat-widget-for-RASA-bot/Untitled4.png "image")
 
-    ```jsx
-    .rw-conversation-container .rw-response{
-    		background-color: light;
-    	}
-    ```
+```jsx
+.rw-conversation-container .rw-response{
+		background-color: light;
+	}
+```
 
-    **Background bubble of user message**
+**Background bubble of user message**
 
-    (red in this example)
+(red in this example)
 
-    ![]({{site.baseurl}}/images/Adding-Chat-widget-for-RASA-bot/Untitled5.png "image")
+![]({{site.baseurl}}/images/Adding-Chat-widget-for-RASA-bot/Untitled5.png "image")
 
-    ```jsx
-    .rw-conversation-container .rw-client{
-    	    background-color: red;
+```jsx
+.rw-conversation-container .rw-client{
+	    background-color: red;
 
-    	}
-    ```
+	}
+```
 
 ### Adding Video to response
 
-    sending video attachment from domain.yml
+sending video attachment from domain.yml
 
-    ```jsx
-    utter_greet:
-      - text: "Hey! How are you?"
-        attachment: { "type":"video", "payload":{ "src": "https://youtube.com/embed/9C1Km6xfdMA" } }
-    ```
+```jsx
+utter_greet:
+  - text: "Hey! How are you?"
+    attachment: { "type":"video", "payload":{ "src": "https://youtube.com/embed/9C1Km6xfdMA" } }
+```
 
-    sending video attachment from [actions.py](http://actions.py/):
+sending video attachment from [actions.py](http://actions.py/):
 
-    ```jsx
-    def run(self, dispatcher: CollectingDispatcher,
-                tracker: Tracker,
-                domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
-            msg={ "type":"video", "payload":{ "title":"Link name", "src": "https://youtube.com/embed/9C1Km6xfdMA" } }
-            dispatcher.utter_message(text="Hello World!",attachment=msg)
+```jsx
+def run(self, dispatcher: CollectingDispatcher,
+            tracker: Tracker,
+            domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
+        msg={ "type":"video", "payload":{ "title":"Link name", "src": "https://youtube.com/embed/9C1Km6xfdMA" } }
+        dispatcher.utter_message(text="Hello World!",attachment=msg)
 
-            return []
-    ```
+        return []
+```
 
-    The link should be in embed mode not anyone other mode. Eg [https://youtube.com/embed/9C1Km6xfdMA](https://youtube.com/embed/9C1Km6xfdMA)   
+The link should be in embed mode not anyone other mode. Eg [https://youtube.com/embed/9C1Km6xfdMA](https://youtube.com/embed/9C1Km6xfdMA)   
 
-    More details, original source
+More details, original source
 
-    [https://forum.rasa.com/t/displaying-video-in-the-rasa-webchat/26931](https://forum.rasa.com/t/displaying-video-in-the-rasa-webchat/26931) 
+[Click Here](https://forum.rasa.com/t/displaying-video-in-the-rasa-webchat/26931) 
 
-    for telegram, follow custom action code works
+for telegram, follow custom action code works
 
-    ```jsx
-    dispatcher.utter_message(text=txt, attachment="https://youtu.be/PN3S-e6I4IQ")
-    ```
+```jsx
+dispatcher.utter_message(text=txt, attachment="https://youtu.be/PN3S-e6I4IQ")
+```
 
 Some more info
 
