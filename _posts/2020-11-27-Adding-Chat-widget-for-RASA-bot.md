@@ -4,7 +4,7 @@ description: "Tips and tricks collated from various sources "
 layout: post
 toc: true
 comments: true
-image: images/logo.png
+image: images/some_folder/logo.png
 hide: false
 search_exclude: false
 categories: [RASA]
@@ -67,7 +67,7 @@ Step2 - rasa run -m models --enable-api --cors "*" --debug
 
 Step3 - update endpoints
 
-![image](sundayposts/images/Adding-Chat-widget-for-RASA-bot/Untitled.png)
+![]({{site.baseurl}}/images/Adding-Chat-widget-for-RASA-bot/Untitled.png "image")
 
 step 4 - update URL [http://localhost:5005](http://localhost:5005/) in html ( same port on which server is running)
 
