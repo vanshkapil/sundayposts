@@ -67,7 +67,7 @@ Step2 - rasa run -m models --enable-api --cors "*" --debug
 
 Step3 - update endpoints
 
-![image](images/Adding-Chat-widget-for-RASA-bot/Untitled.png)
+
 
 step 4 - update URL [http://localhost:5005](http://localhost:5005/) in html ( same port on which server is running)
 
