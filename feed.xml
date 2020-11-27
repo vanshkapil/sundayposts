@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.1.1">Jekyll</generator><link href="https://vanshkapil.github.io/sundayposts/feed.xml" rel="self" type="application/atom+xml" /><link href="https://vanshkapil.github.io/sundayposts/" rel="alternate" type="text/html" /><updated>2020-11-27T03:02:04-06:00</updated><id>https://vanshkapil.github.io/sundayposts/feed.xml</id><title type="html">SundayPosts</title><subtitle>Posts of what and how I am learning to code. My interests are Chatbot development using RASA. Also dabbling with ML and DL.</subtitle><entry><title type="html">Adding Chat widget for RASA bot</title><link href="https://vanshkapil.github.io/sundayposts/rasa/2020/11/27/Adding-Chat-widget-for-RASA-bot.html" rel="alternate" type="text/html" title="Adding Chat widget for RASA bot" /><published>2020-11-27T00:00:00-06:00</published><updated>2020-11-27T00:00:00-06:00</updated><id>https://vanshkapil.github.io/sundayposts/rasa/2020/11/27/Adding-Chat-widget-for-RASA-bot</id><content type="html" xml:base="https://vanshkapil.github.io/sundayposts/rasa/2020/11/27/Adding-Chat-widget-for-RASA-bot.html">&lt;div class=&quot;language-jsx highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nx&quot;&gt;Code&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;chat&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;widget&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;https&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;c1&quot;&gt;//github.com/botfront/rasa-webchat&lt;/span&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.1.1">Jekyll</generator><link href="https://sundayposts.sundaybots.com/feed.xml" rel="self" type="application/atom+xml" /><link href="https://sundayposts.sundaybots.com/" rel="alternate" type="text/html" /><updated>2020-11-27T03:03:43-06:00</updated><id>https://sundayposts.sundaybots.com/feed.xml</id><title type="html">SundayPosts</title><subtitle>Posts of what and how I am learning to code. My interests are Chatbot development using RASA. Also dabbling with ML and DL.</subtitle><entry><title type="html">Adding Chat widget for RASA bot</title><link href="https://sundayposts.sundaybots.com/rasa/2020/11/27/Adding-Chat-widget-for-RASA-bot.html" rel="alternate" type="text/html" title="Adding Chat widget for RASA bot" /><published>2020-11-27T00:00:00-06:00</published><updated>2020-11-27T00:00:00-06:00</updated><id>https://sundayposts.sundaybots.com/rasa/2020/11/27/Adding-Chat-widget-for-RASA-bot</id><content type="html" xml:base="https://sundayposts.sundaybots.com/rasa/2020/11/27/Adding-Chat-widget-for-RASA-bot.html">&lt;div class=&quot;language-jsx highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nx&quot;&gt;Code&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;chat&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;widget&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;https&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;c1&quot;&gt;//github.com/botfront/rasa-webchat&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;p&gt;Here is the basic chat widget code to be placed in &amp;lt;Body&amp;gt; &amp;lt;/Body&amp;gt; tags&lt;/p&gt;
@@ -50,7 +50,7 @@
 
 &lt;p&gt;Step3 - update endpoints&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;/sundayposts/images/Adding-Chat-widget-for-RASA-bot/Untitled.png&quot; alt=&quot;&quot; title=&quot;image&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/images/Adding-Chat-widget-for-RASA-bot/Untitled.png&quot; alt=&quot;&quot; title=&quot;image&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;step 4 - update URL &lt;a href=&quot;http://localhost:5005/&quot;&gt;http://localhost:5005&lt;/a&gt; in html ( same port on which server is running)&lt;/p&gt;
 
@@ -180,7 +180,7 @@
 
 &lt;p&gt;&lt;strong&gt;To change quick replies and properties&lt;/strong&gt;&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;/sundayposts/images/Adding-Chat-widget-for-RASA-bot/Untitled1.png&quot; alt=&quot;&quot; title=&quot;image&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/images/Adding-Chat-widget-for-RASA-bot/Untitled1.png&quot; alt=&quot;&quot; title=&quot;image&quot; /&gt;&lt;/p&gt;
 
 &lt;div class=&quot;language-jsx highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;rw&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;conversation&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;container&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;rw&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;replies&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
         &lt;span class=&quot;nl&quot;&gt;display&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;inline&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;block&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
@@ -197,7 +197,7 @@
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;p&gt;&lt;strong&gt;Button Background color&lt;/strong&gt;
-&lt;img src=&quot;/sundayposts/images/Adding-Chat-widget-for-RASA-bot/Untitled2.png&quot; alt=&quot;&quot; title=&quot;image&quot; /&gt;&lt;/p&gt;
+&lt;img src=&quot;/images/Adding-Chat-widget-for-RASA-bot/Untitled2.png&quot; alt=&quot;&quot; title=&quot;image&quot; /&gt;&lt;/p&gt;
 
 &lt;div class=&quot;language-jsx highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;rw&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;widget&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;container&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;rw&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;launcher&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
 	    &lt;span class=&quot;nx&quot;&gt;background&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;color&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;green&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
@@ -206,7 +206,7 @@
 
 &lt;p&gt;&lt;strong&gt;Header Banner&lt;/strong&gt;&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;/sundayposts/images/Adding-Chat-widget-for-RASA-bot/Untitled3.png&quot; alt=&quot;&quot; title=&quot;image&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/images/Adding-Chat-widget-for-RASA-bot/Untitled3.png&quot; alt=&quot;&quot; title=&quot;image&quot; /&gt;&lt;/p&gt;
 
 &lt;div class=&quot;language-jsx highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nx&quot;&gt;div&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;rw&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;header&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;rw&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;kd&quot;&gt;with&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;subtitle&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
 		&lt;span class=&quot;nx&quot;&gt;background&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;color&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;rebeccapurple&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
@@ -218,7 +218,7 @@
 
 &lt;p&gt;(light grey in this example)&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;/sundayposts/images/Adding-Chat-widget-for-RASA-bot/Untitled4.png&quot; alt=&quot;&quot; title=&quot;image&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/images/Adding-Chat-widget-for-RASA-bot/Untitled4.png&quot; alt=&quot;&quot; title=&quot;image&quot; /&gt;&lt;/p&gt;
 
 &lt;div class=&quot;language-jsx highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;rw&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;conversation&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;container&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;rw&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;response&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
 		&lt;span class=&quot;nx&quot;&gt;background&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;color&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;light&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
@@ -229,7 +229,7 @@
 
 &lt;p&gt;(red in this example)&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;/sundayposts/images/Adding-Chat-widget-for-RASA-bot/Untitled5.png&quot; alt=&quot;&quot; title=&quot;image&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/images/Adding-Chat-widget-for-RASA-bot/Untitled5.png&quot; alt=&quot;&quot; title=&quot;image&quot; /&gt;&lt;/p&gt;
 
 &lt;div class=&quot;language-jsx highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;rw&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;conversation&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;container&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;rw&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;client&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
 	    &lt;span class=&quot;nx&quot;&gt;background&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;color&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;red&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
@@ -271,7 +271,7 @@
 &lt;p&gt;Some more info&lt;/p&gt;
 
 &lt;div class=&quot;language-jsx highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nx&quot;&gt;https&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;c1&quot;&gt;//forum.rasa.com/t/rasa-web-chat-customizing-buttons-colors-alligning-etc/24716/28&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;</content><author><name></name></author><category term="RASA" /><summary type="html">Code chat widget https://github.com/botfront/rasa-webchat</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://vanshkapil.github.io/sundayposts/images/logo.png" /><media:content medium="image" url="https://vanshkapil.github.io/sundayposts/images/logo.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Some Shopify GraphQL queries to get you started</title><link href="https://vanshkapil.github.io/sundayposts/shopify/2020/10/28/Shopify-GraphQL-Queries-Getting-Started.html" rel="alternate" type="text/html" title="Some Shopify GraphQL queries to get you started" /><published>2020-10-28T00:00:00-05:00</published><updated>2020-10-28T00:00:00-05:00</updated><id>https://vanshkapil.github.io/sundayposts/shopify/2020/10/28/Shopify-GraphQL-Queries-Getting-Started</id><content type="html" xml:base="https://vanshkapil.github.io/sundayposts/shopify/2020/10/28/Shopify-GraphQL-Queries-Getting-Started.html">&lt;!--
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;</content><author><name></name></author><category term="RASA" /><summary type="html">Code chat widget https://github.com/botfront/rasa-webchat</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://sundayposts.sundaybots.com/images/logo.png" /><media:content medium="image" url="https://sundayposts.sundaybots.com/images/logo.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Some Shopify GraphQL queries to get you started</title><link href="https://sundayposts.sundaybots.com/shopify/2020/10/28/Shopify-GraphQL-Queries-Getting-Started.html" rel="alternate" type="text/html" title="Some Shopify GraphQL queries to get you started" /><published>2020-10-28T00:00:00-05:00</published><updated>2020-10-28T00:00:00-05:00</updated><id>https://sundayposts.sundaybots.com/shopify/2020/10/28/Shopify-GraphQL-Queries-Getting-Started</id><content type="html" xml:base="https://sundayposts.sundaybots.com/shopify/2020/10/28/Shopify-GraphQL-Queries-Getting-Started.html">&lt;!--
 #################################################
 ### THIS FILE WAS AUTOGENERATED! DO NOT EDIT! ###
 #################################################
@@ -710,7 +710,7 @@ This works well if you have fewer products in a collection.&lt;/p&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
-&lt;/div&gt;</content><author><name>Vansh Kapil</name></author><category term="shopify" /><summary type="html"></summary></entry><entry><title type="html">Getting started with Shopify API</title><link href="https://vanshkapil.github.io/sundayposts/shopify/2020/10/23/Getting-started-with-Shopify-API.html" rel="alternate" type="text/html" title="Getting started with Shopify API" /><published>2020-10-23T00:00:00-05:00</published><updated>2020-10-23T00:00:00-05:00</updated><id>https://vanshkapil.github.io/sundayposts/shopify/2020/10/23/Getting-started-with-Shopify-API</id><content type="html" xml:base="https://vanshkapil.github.io/sundayposts/shopify/2020/10/23/Getting-started-with-Shopify-API.html">&lt;!--
+&lt;/div&gt;</content><author><name>Vansh Kapil</name></author><category term="shopify" /><summary type="html"></summary></entry><entry><title type="html">Getting started with Shopify API</title><link href="https://sundayposts.sundaybots.com/shopify/2020/10/23/Getting-started-with-Shopify-API.html" rel="alternate" type="text/html" title="Getting started with Shopify API" /><published>2020-10-23T00:00:00-05:00</published><updated>2020-10-23T00:00:00-05:00</updated><id>https://sundayposts.sundaybots.com/shopify/2020/10/23/Getting-started-with-Shopify-API</id><content type="html" xml:base="https://sundayposts.sundaybots.com/shopify/2020/10/23/Getting-started-with-Shopify-API.html">&lt;!--
 #################################################
 ### THIS FILE WAS AUTOGENERATED! DO NOT EDIT! ###
 #################################################
