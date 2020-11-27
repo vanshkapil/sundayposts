@@ -71,13 +71,13 @@ Step3 - update endpoints
 
 step 4 - update URL [http://localhost:5005](http://localhost:5005/) in html ( same port on which server is running)
 
-- **In case bot is on server, for example zuzu**
+### In case bot is on server, for example zuzu
 
     ```jsx
     socketUrl: "https://zuzu.sundaybots.com"
     ```
 
-- **Directing chatbot according to the page**
+### Directing chatbot according to the page
 
     ```jsx
     initPayload: window.location.pathname,
@@ -104,7 +104,7 @@ step 4 - update URL [http://localhost:5005](http://localhost:5005/) in html ( sa
 
     More Details [https://github.com/botfront/rasa-webchat#api](https://github.com/botfront/rasa-webchat#api)
 
-- **Opening chat widget on page load**
+### Opening chat widget on page load
 
     ```jsx
     window.onload = WebChat.open; 
@@ -124,7 +124,7 @@ step 4 - update URL [http://localhost:5005](http://localhost:5005/) in html ( sa
 
     ```
 
-- **Creating a hyperlink in chat widget**
+### Creating a hyperlink in chat widget
 
     ```jsx
     [Sundaybots](https://www.sundaybots.com/)
@@ -132,7 +132,7 @@ step 4 - update URL [http://localhost:5005](http://localhost:5005/) in html ( sa
     [TITLE](URL)
     ```
 
-- **Carousel in Chat widget**
+### Carousel in Chat widget
 
     ```jsx
     	test_carousel = {
@@ -177,7 +177,7 @@ step 4 - update URL [http://localhost:5005](http://localhost:5005/) in html ( sa
             dispatcher.utter_message(attachment=test_carousel)
     ```
 
-- **Color Font and widget styling**
+### Color Font and widget styling
 
     ```jsx
     <style>
@@ -208,7 +208,7 @@ step 4 - update URL [http://localhost:5005](http://localhost:5005/) in html ( sa
 
     **To change quick replies and properties**
 
-    ![images/Adding-Chat-widget-for-RASA-bot/Untitled1.png]images/Adding-Chat-widget-for-RASA-bot/Untitled1.png)
+    ![]({{site.baseurl}}/images/Adding-Chat-widget-for-RASA-bot/Untitled1.png "image")
 
     ```jsx
     .rw-conversation-container .rw-replies {
@@ -226,8 +226,8 @@ step 4 - update URL [http://localhost:5005](http://localhost:5005/) in html ( sa
     ```
 
     **Button Background color**
+    ![]({{site.baseurl}}/images/Adding-Chat-widget-for-RASA-bot/Untitled2.png "image")
 
-    ![images/Adding-Chat-widget-for-RASA-bot/Untitled2.png](images/Adding-Chat-widget-for-RASA-bot/Untitled2.png)
 
     ```jsx
     .rw-widget-container .rw-launcher{
@@ -237,7 +237,7 @@ step 4 - update URL [http://localhost:5005](http://localhost:5005/) in html ( sa
 
     **Header Banner**
 
-    ![images/Adding-Chat-widget-for-RASA-bot/Untitled3.png](images/Adding-Chat-widget-for-RASA-bot/Untitled3.png)
+    ![]({{site.baseurl}}/images/Adding-Chat-widget-for-RASA-bot/Untitled3.png "image")
 
     ```jsx
     div.rw-header.rw-with-subtitle{
@@ -250,7 +250,7 @@ step 4 - update URL [http://localhost:5005](http://localhost:5005/) in html ( sa
 
     (light grey in this example)
 
-    ![images/Adding-Chat-widget-for-RASA-bot/Untitled4.png](images/Adding-Chat-widget-for-RASA-bot/Untitled4.png)
+    ![]({{site.baseurl}}/images/Adding-Chat-widget-for-RASA-bot/Untitled4.png "image")
 
     ```jsx
     .rw-conversation-container .rw-response{
@@ -262,7 +262,7 @@ step 4 - update URL [http://localhost:5005](http://localhost:5005/) in html ( sa
 
     (red in this example)
 
-    ![images/Adding-Chat-widget-for-RASA-bot/Untitled5.png](images/Adding-Chat-widget-for-RASA-bot/Untitled5.png)
+    ![]({{site.baseurl}}/images/Adding-Chat-widget-for-RASA-bot/Untitled5.png "image")
 
     ```jsx
     .rw-conversation-container .rw-client{
@@ -271,7 +271,7 @@ step 4 - update URL [http://localhost:5005](http://localhost:5005/) in html ( sa
     	}
     ```
 
-- **Adding Video to response**
+### Adding Video to response
 
     sending video attachment from domain.yml
 
