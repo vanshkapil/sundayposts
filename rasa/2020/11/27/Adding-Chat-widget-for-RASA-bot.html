@@ -97,6 +97,13 @@ window.onload = wrap_img;
     <ul class="section-nav">
 <li class="toc-entry toc-h3"><a href="#running-webchat-on-localhost-with-rasa-x">Running webchat on localhost with RASA X</a></li>
 <li class="toc-entry toc-h3"><a href="#running-webchat-on-localhost-without-rasa-x">Running webchat on localhost without RASA X</a></li>
+<li class="toc-entry toc-h3"><a href="#in-case-bot-is-on-server-for-example-zuzu">In case bot is on server, for example zuzu</a></li>
+<li class="toc-entry toc-h3"><a href="#directing-chatbot-according-to-the-page">Directing chatbot according to the page</a></li>
+<li class="toc-entry toc-h3"><a href="#opening-chat-widget-on-page-load">Opening chat widget on page load</a></li>
+<li class="toc-entry toc-h3"><a href="#creating-a-hyperlink-in-chat-widget">Creating a hyperlink in chat widget</a></li>
+<li class="toc-entry toc-h3"><a href="#carousel-in-chat-widget">Carousel in Chat widget</a></li>
+<li class="toc-entry toc-h3"><a href="#color-font-and-widget-styling">Color Font and widget styling</a></li>
+<li class="toc-entry toc-h3"><a href="#adding-video-to-response">Adding Video to response</a></li>
 </ul><div class="language-jsx highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">Code</span> <span class="nx">chat</span> <span class="nx">widget</span> <span class="nx">https</span><span class="p">:</span><span class="c1">//github.com/botfront/rasa-webchat</span>
 </code></pre></div></div>
 
@@ -155,249 +162,253 @@ window.onload = wrap_img;
 
 <p>step 4 - update URL <a href="http://localhost:5005/">http://localhost:5005</a> in html ( same port on which server is running)</p>
 
-<ul>
-  <li>
-    <p><strong>In case bot is on server, for example zuzu</strong></p>
+<h3 id="in-case-bot-is-on-server-for-example-zuzu">
+<a class="anchor" href="#in-case-bot-is-on-server-for-example-zuzu" aria-hidden="true"><span class="octicon octicon-link"></span></a>In case bot is on server, for example zuzu</h3>
 
-    <div class="language-jsx highlighter-rouge">
-<div class="highlight"><pre class="highlight"><code>  <span class="nx">socketUrl</span><span class="p">:</span> <span class="dl">"</span><span class="s2">https://zuzu.sundaybots.com</span><span class="dl">"</span>
-</code></pre></div>    </div>
-  </li>
-  <li>
-    <p><strong>Directing chatbot according to the page</strong></p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>```jsx
+socketUrl: "https://zuzu.sundaybots.com"
+```
+</code></pre></div></div>
 
-    <div class="language-jsx highlighter-rouge">
-<div class="highlight"><pre class="highlight"><code>  <span class="nx">initPayload</span><span class="p">:</span> <span class="nb">window</span><span class="p">.</span><span class="nx">location</span><span class="p">.</span><span class="nx">pathname</span><span class="p">,</span>
-</code></pre></div>    </div>
+<h3 id="directing-chatbot-according-to-the-page">
+<a class="anchor" href="#directing-chatbot-according-to-the-page" aria-hidden="true"><span class="octicon octicon-link"></span></a>Directing chatbot according to the page</h3>
 
-    <p>When a page loads , the above parameter will send the pathname of the current page.</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>```jsx
+initPayload: window.location.pathname,
+```
 
-    <div class="language-jsx highlighter-rouge">
-<div class="highlight"><pre class="highlight"><code>  <span class="nx">initPayload</span><span class="p">:</span> <span class="nb">window</span><span class="p">.</span><span class="nx">location</span><span class="p">.</span><span class="nx">href</span><span class="p">,</span>
-</code></pre></div>    </div>
+When a page loads , the above parameter will send the pathname of the current page. 
 
-    <p>This passes the entire URL</p>
+```jsx
+initPayload: window.location.href,
+```
 
-    <p>Detecting the current page, bot can initiate an intent.</p>
+This passes the entire URL 
 
-    <p>If the bot is already initialized, add the below code after <strong>WebChat.default.init()</strong></p>
+Detecting the current page, bot can initiate an intent.
 
-    <div class="language-jsx highlighter-rouge">
-<div class="highlight"><pre class="highlight"><code>  <span class="kd">var</span> <span class="nx">locn</span> <span class="o">=</span> <span class="p">[</span><span class="dl">'</span><span class="s1">/check_url{"page_url":"</span><span class="dl">'</span><span class="p">,</span><span class="nb">window</span><span class="p">.</span><span class="nx">location</span><span class="p">.</span><span class="nx">href</span><span class="p">,</span><span class="dl">'</span><span class="s1">"}</span><span class="dl">'</span><span class="p">].</span><span class="nx">join</span><span class="p">(</span><span class="dl">''</span><span class="p">)</span>
-    <span class="nx">WebChat</span><span class="p">.</span><span class="nx">send</span><span class="p">(</span><span class="nx">locn</span><span class="p">)</span>
-</code></pre></div>    </div>
+If the bot is already initialized, add the below code after **WebChat.default.init()** 
 
-    <p>This will send the current URL to RASA without printing the text on chat.</p>
+```jsx
+var locn = ['/check_url{"page_url":"',window.location.href,'"}'].join('')
+  WebChat.send(locn)
+```
 
-    <p>More Details <a href="https://github.com/botfront/rasa-webchat#api">https://github.com/botfront/rasa-webchat#api</a></p>
-  </li>
-  <li>
-    <p><strong>Opening chat widget on page load</strong></p>
+This will send the current URL to RASA without printing the text on chat.
 
-    <div class="language-jsx highlighter-rouge">
-<div class="highlight"><pre class="highlight"><code>  <span class="nb">window</span><span class="p">.</span><span class="nx">onload</span> <span class="o">=</span> <span class="nx">WebChat</span><span class="p">.</span><span class="nx">open</span><span class="p">;</span> 
-</code></pre></div>    </div>
+More Details [https://github.com/botfront/rasa-webchat#api](https://github.com/botfront/rasa-webchat#api)
+</code></pre></div></div>
 
-    <p>Adding this command before widget function.</p>
+<h3 id="opening-chat-widget-on-page-load">
+<a class="anchor" href="#opening-chat-widget-on-page-load" aria-hidden="true"><span class="octicon octicon-link"></span></a>Opening chat widget on page load</h3>
 
-    <p>code looks like</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>```jsx
+window.onload = WebChat.open; 
+```
 
-    <div class="language-jsx highlighter-rouge">
-<div class="highlight"><pre class="highlight"><code>  <span class="p">&lt;</span><span class="nt">script</span><span class="p">&gt;</span>
-    window.onload = WebChat.open;
-    WebChat.default.init(<span class="si">{</span>
-      <span class="nx">selector</span><span class="p">:</span> <span class="dl">"</span><span class="s2">#webchat</span><span class="dl">"</span><span class="p">,</span>
-  <span class="p">.</span>
-  <span class="p">.</span>
+Adding this command before widget function. 
 
-</code></pre></div>    </div>
-  </li>
-  <li>
-    <p><strong>Creating a hyperlink in chat widget</strong></p>
+code looks like
 
-    <div class="language-jsx highlighter-rouge">
-<div class="highlight"><pre class="highlight"><code>  <span class="p">[</span><span class="nx">Sundaybots</span><span class="p">](</span><span class="nx">https</span><span class="p">:</span><span class="c1">//www.sundaybots.com/)</span>
+```jsx
+&lt;script&gt;
+  window.onload = WebChat.open;
+  WebChat.default.init({
+    selector: "#webchat",
+.
+.
 
-  <span class="p">[</span><span class="nx">TITLE</span><span class="p">](</span><span class="nx">URL</span><span class="p">)</span>
-</code></pre></div>    </div>
-  </li>
-  <li>
-    <p><strong>Carousel in Chat widget</strong></p>
+```
+</code></pre></div></div>
 
-    <div class="language-jsx highlighter-rouge">
-<div class="highlight"><pre class="highlight"><code>  	<span class="nx">test_carousel</span> <span class="o">=</span> <span class="p">{</span>
-              <span class="dl">"</span><span class="s2">type</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">template</span><span class="dl">"</span><span class="p">,</span>
-              <span class="dl">"</span><span class="s2">payload</span><span class="dl">"</span><span class="p">:</span> <span class="p">{</span>
-                  <span class="dl">"</span><span class="s2">template_type</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">generic</span><span class="dl">"</span><span class="p">,</span>
-                  <span class="dl">"</span><span class="s2">elements</span><span class="dl">"</span><span class="p">:</span> <span class="p">[{</span>
-                      <span class="dl">"</span><span class="s2">title</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">Golf</span><span class="dl">"</span><span class="p">,</span>
-                      <span class="dl">"</span><span class="s2">subtitle</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">Super Slow Sport</span><span class="dl">"</span><span class="p">,</span>
-                      <span class="dl">"</span><span class="s2">image_url</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">https://static01.nyt.com/images/2020/07/23/sports/23golf-wie-big/23golf-wie-big-videoSixteenByNineJumbo1600.jpg</span><span class="dl">"</span><span class="p">,</span>
-                      <span class="dl">"</span><span class="s2">buttons</span><span class="dl">"</span><span class="p">:</span> <span class="p">[{</span>
-                          <span class="dl">"</span><span class="s2">title</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">Golf Link name</span><span class="dl">"</span><span class="p">,</span>
-                          <span class="dl">"</span><span class="s2">url</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">https://www.golfchannel.com/</span><span class="dl">"</span><span class="p">,</span>
-                          <span class="dl">"</span><span class="s2">type</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">web_url</span><span class="dl">"</span>
-                      <span class="p">},</span>
-                          <span class="p">{</span>
-                              <span class="dl">"</span><span class="s2">title</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">Golf postback name</span><span class="dl">"</span><span class="p">,</span>
-                              <span class="dl">"</span><span class="s2">type</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">postback</span><span class="dl">"</span><span class="p">,</span>
-                              <span class="dl">"</span><span class="s2">payload</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">/greet</span><span class="dl">"</span>
-                          <span class="p">}</span>
-                      <span class="p">]</span>
-                  <span class="p">},</span>
-                      <span class="p">{</span>
-                          <span class="dl">"</span><span class="s2">title</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">Cricket</span><span class="dl">"</span><span class="p">,</span>
-                          <span class="dl">"</span><span class="s2">subtitle</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">Best Game in Town</span><span class="dl">"</span><span class="p">,</span>
-                          <span class="dl">"</span><span class="s2">image_url</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">https://nnimgt-a.akamaihd.net/transform/v1/crop/frm/silverstone-feed-data/67c54b2a-b43b-4cbd-9a83-cb5208d9a5b5.jpg/r0_0_800_600_w1200_h678_fmax.jpg</span><span class="dl">"</span><span class="p">,</span>
-                          <span class="dl">"</span><span class="s2">buttons</span><span class="dl">"</span><span class="p">:</span> <span class="p">[{</span>
-                              <span class="dl">"</span><span class="s2">title</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">Cricket Link name</span><span class="dl">"</span><span class="p">,</span>
-                              <span class="dl">"</span><span class="s2">url</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">https://youtu.be/_imizBMHN0w</span><span class="dl">"</span><span class="p">,</span>
-                              <span class="dl">"</span><span class="s2">type</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">web_url</span><span class="dl">"</span>
-                          <span class="p">},</span>
-                              <span class="p">{</span>
-                                  <span class="dl">"</span><span class="s2">title</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">Cricket postback name</span><span class="dl">"</span><span class="p">,</span>
-                                  <span class="dl">"</span><span class="s2">type</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">postback</span><span class="dl">"</span><span class="p">,</span>
-                                  <span class="dl">"</span><span class="s2">payload</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">/greet</span><span class="dl">"</span>
-                              <span class="p">}</span>
-                          <span class="p">]</span>
-                      <span class="p">}</span>
-                  <span class="p">]</span>
-              <span class="p">}</span>
-          <span class="p">}</span>
-          <span class="nx">dispatcher</span><span class="p">.</span><span class="nx">utter_message</span><span class="p">(</span><span class="nx">attachment</span><span class="o">=</span><span class="nx">test_carousel</span><span class="p">)</span>
-</code></pre></div>    </div>
-  </li>
-  <li>
-    <p><strong>Color Font and widget styling</strong></p>
+<h3 id="creating-a-hyperlink-in-chat-widget">
+<a class="anchor" href="#creating-a-hyperlink-in-chat-widget" aria-hidden="true"><span class="octicon octicon-link"></span></a>Creating a hyperlink in chat widget</h3>
 
-    <div class="language-jsx highlighter-rouge">
-<div class="highlight"><pre class="highlight"><code>  <span class="p">&lt;</span><span class="nt">style</span><span class="p">&gt;</span>
-  		div.rw-message-text
-  	<span class="si">{</span>
-  		<span class="nx">font</span><span class="o">-</span><span class="nx">size</span><span class="p">:</span> <span class="mi">12</span><span class="nx">px</span><span class="p">;</span>
-  	<span class="si">}</span>
-  	div.rw-header.rw-with-subtitle<span class="si">{</span>
-  		<span class="nx">background</span><span class="o">-</span><span class="nx">color</span><span class="p">:</span> <span class="nx">rebeccapurple</span><span class="p">;</span>
-  	<span class="si">}</span>
-  	.rw-open-launcher<span class="si">{</span>
-  		<span class="nx">background</span><span class="p">:</span> <span class="nx">url</span><span class="p">(</span><span class="dl">"</span><span class="s2">https://static.wixstatic.com/media/7309b2_23f0b6a0511741648ca7b21acfb1fa6d~mv2.png</span><span class="dl">"</span><span class="p">)</span> <span class="nx">no</span><span class="o">-</span><span class="nx">repeat</span><span class="p">;</span>
-  	<span class="si">}</span>
-  	.rw-conversation-container .rw-response<span class="si">{</span>
-  		<span class="nx">background</span><span class="o">-</span><span class="nx">color</span><span class="p">:</span> <span class="nx">light</span><span class="p">;</span>
-  	<span class="si">}</span>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>```jsx
+[Sundaybots](https://www.sundaybots.com/)
 
-  	.rw-conversation-container .rw-client<span class="si">{</span>
-  	    <span class="nx">background</span><span class="o">-</span><span class="nx">color</span><span class="p">:</span> <span class="nx">rebeccapurple</span><span class="p">;</span>
+[TITLE](URL)
+```
+</code></pre></div></div>
 
-  	<span class="si">}</span>
-  	.rw-widget-container .rw-launcher<span class="si">{</span>
-  	    <span class="nx">background</span><span class="o">-</span><span class="nx">color</span><span class="p">:</span> <span class="nx">rebeccapurple</span><span class="p">;</span>
-  	<span class="si">}</span>
+<h3 id="carousel-in-chat-widget">
+<a class="anchor" href="#carousel-in-chat-widget" aria-hidden="true"><span class="octicon octicon-link"></span></a>Carousel in Chat widget</h3>
 
-  	<span class="p">&lt;/</span><span class="nt">style</span><span class="p">&gt;</span>
-</code></pre></div>    </div>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>```jsx
+	test_carousel = {
+            "type": "template",
+            "payload": {
+                "template_type": "generic",
+                "elements": [{
+                    "title": "Golf",
+                    "subtitle": "Super Slow Sport",
+                    "image_url": "https://static01.nyt.com/images/2020/07/23/sports/23golf-wie-big/23golf-wie-big-videoSixteenByNineJumbo1600.jpg",
+                    "buttons": [{
+                        "title": "Golf Link name",
+                        "url": "https://www.golfchannel.com/",
+                        "type": "web_url"
+                    },
+                        {
+                            "title": "Golf postback name",
+                            "type": "postback",
+                            "payload": "/greet"
+                        }
+                    ]
+                },
+                    {
+                        "title": "Cricket",
+                        "subtitle": "Best Game in Town",
+                        "image_url": "https://nnimgt-a.akamaihd.net/transform/v1/crop/frm/silverstone-feed-data/67c54b2a-b43b-4cbd-9a83-cb5208d9a5b5.jpg/r0_0_800_600_w1200_h678_fmax.jpg",
+                        "buttons": [{
+                            "title": "Cricket Link name",
+                            "url": "https://youtu.be/_imizBMHN0w",
+                            "type": "web_url"
+                        },
+                            {
+                                "title": "Cricket postback name",
+                                "type": "postback",
+                                "payload": "/greet"
+                            }
+                        ]
+                    }
+                ]
+            }
+        }
+        dispatcher.utter_message(attachment=test_carousel)
+```
+</code></pre></div></div>
 
-    <p><strong>To change quick replies and properties</strong></p>
+<h3 id="color-font-and-widget-styling">
+<a class="anchor" href="#color-font-and-widget-styling" aria-hidden="true"><span class="octicon octicon-link"></span></a>Color Font and widget styling</h3>
 
-    <p>![images/Adding-Chat-widget-for-RASA-bot/Untitled1.png]images/Adding-Chat-widget-for-RASA-bot/Untitled1.png)</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>```jsx
+&lt;style&gt;
+		div.rw-message-text
+	{
+		font-size: 12px;
+	}
+	div.rw-header.rw-with-subtitle{
+		background-color: rebeccapurple;
+	}
+	.rw-open-launcher{
+		background: url("https://static.wixstatic.com/media/7309b2_23f0b6a0511741648ca7b21acfb1fa6d~mv2.png") no-repeat;
+	}
+	.rw-conversation-container .rw-response{
+		background-color: light;
+	}
 
-    <div class="language-jsx highlighter-rouge">
-<div class="highlight"><pre class="highlight"><code>  <span class="p">.</span><span class="nx">rw</span><span class="o">-</span><span class="nx">conversation</span><span class="o">-</span><span class="nx">container</span> <span class="p">.</span><span class="nx">rw</span><span class="o">-</span><span class="nx">replies</span> <span class="p">{</span>
-          <span class="nl">display</span><span class="p">:</span><span class="nx">inline</span><span class="o">-</span><span class="nx">block</span><span class="p">;</span>
-      <span class="p">}</span>
-  <span class="p">.</span><span class="nx">rw</span><span class="o">-</span><span class="nx">conversation</span><span class="o">-</span><span class="nx">container</span> <span class="p">.</span><span class="nx">rw</span><span class="o">-</span><span class="nx">reply</span><span class="p">{</span>
-          <span class="nl">display</span><span class="p">:</span><span class="nx">block</span><span class="p">;</span>
-          <span class="nx">text</span><span class="o">-</span><span class="nx">align</span><span class="p">:</span> <span class="nx">center</span><span class="p">;</span>
-          <span class="nl">color</span><span class="p">:</span> <span class="nx">green</span><span class="p">;</span>
-          <span class="nx">border</span><span class="o">-</span><span class="nx">color</span><span class="p">:</span> <span class="nx">green</span><span class="p">;</span>
-  				<span class="nx">font</span><span class="o">-</span><span class="nx">size</span><span class="p">:</span> <span class="mi">14</span><span class="p">;</span>
-          <span class="nx">font</span><span class="o">-</span><span class="nx">weight</span><span class="p">:</span> <span class="nx">bold</span><span class="p">;</span>
+	.rw-conversation-container .rw-client{
+	    background-color: rebeccapurple;
 
-      <span class="p">}</span>
-</code></pre></div>    </div>
+	}
+	.rw-widget-container .rw-launcher{
+	    background-color: rebeccapurple;
+	}
 
-    <p><strong>Button Background color</strong></p>
+	&lt;/style&gt;
+```
 
-    <p><img src="images/Adding-Chat-widget-for-RASA-bot/Untitled2.png" alt="images/Adding-Chat-widget-for-RASA-bot/Untitled2.png"></p>
+**To change quick replies and properties**
 
-    <div class="language-jsx highlighter-rouge">
-<div class="highlight"><pre class="highlight"><code>  <span class="p">.</span><span class="nx">rw</span><span class="o">-</span><span class="nx">widget</span><span class="o">-</span><span class="nx">container</span> <span class="p">.</span><span class="nx">rw</span><span class="o">-</span><span class="nx">launcher</span><span class="p">{</span>
-  	    <span class="nx">background</span><span class="o">-</span><span class="nx">color</span><span class="p">:</span> <span class="nx">green</span><span class="p">;</span>
-  	<span class="p">}</span>
-</code></pre></div>    </div>
+![](/sundayposts/images/Adding-Chat-widget-for-RASA-bot/Untitled1.png "image")
 
-    <p><strong>Header Banner</strong></p>
+```jsx
+.rw-conversation-container .rw-replies {
+        display:inline-block;
+    }
+.rw-conversation-container .rw-reply{
+        display:block;
+        text-align: center;
+        color: green;
+        border-color: green;
+				font-size: 14;
+        font-weight: bold;
 
-    <p><img src="images/Adding-Chat-widget-for-RASA-bot/Untitled3.png" alt="images/Adding-Chat-widget-for-RASA-bot/Untitled3.png"></p>
+    }
+```
 
-    <div class="language-jsx highlighter-rouge">
-<div class="highlight"><pre class="highlight"><code>  <span class="nx">div</span><span class="p">.</span><span class="nx">rw</span><span class="o">-</span><span class="nx">header</span><span class="p">.</span><span class="nx">rw</span><span class="o">-</span><span class="kd">with</span><span class="o">-</span><span class="nx">subtitle</span><span class="p">{</span>
-  		<span class="nx">background</span><span class="o">-</span><span class="nx">color</span><span class="p">:</span> <span class="nx">rebeccapurple</span><span class="p">;</span>
+**Button Background color**
+![](/sundayposts/images/Adding-Chat-widget-for-RASA-bot/Untitled2.png "image")
 
-  	<span class="p">}</span>
-</code></pre></div>    </div>
 
-    <p><strong>Background bubble on the bot reply</strong></p>
+```jsx
+.rw-widget-container .rw-launcher{
+	    background-color: green;
+	}
+```
 
-    <p>(light grey in this example)</p>
+**Header Banner**
 
-    <p><img src="images/Adding-Chat-widget-for-RASA-bot/Untitled4.png" alt="images/Adding-Chat-widget-for-RASA-bot/Untitled4.png"></p>
+![](/sundayposts/images/Adding-Chat-widget-for-RASA-bot/Untitled3.png "image")
 
-    <div class="language-jsx highlighter-rouge">
-<div class="highlight"><pre class="highlight"><code>  <span class="p">.</span><span class="nx">rw</span><span class="o">-</span><span class="nx">conversation</span><span class="o">-</span><span class="nx">container</span> <span class="p">.</span><span class="nx">rw</span><span class="o">-</span><span class="nx">response</span><span class="p">{</span>
-  		<span class="nx">background</span><span class="o">-</span><span class="nx">color</span><span class="p">:</span> <span class="nx">light</span><span class="p">;</span>
-  	<span class="p">}</span>
-</code></pre></div>    </div>
+```jsx
+div.rw-header.rw-with-subtitle{
+		background-color: rebeccapurple;
 
-    <p><strong>Background bubble of user message</strong></p>
+	}
+```
 
-    <p>(red in this example)</p>
+**Background bubble on the bot reply**
 
-    <p><img src="images/Adding-Chat-widget-for-RASA-bot/Untitled5.png" alt="images/Adding-Chat-widget-for-RASA-bot/Untitled5.png"></p>
+(light grey in this example)
 
-    <div class="language-jsx highlighter-rouge">
-<div class="highlight"><pre class="highlight"><code>  <span class="p">.</span><span class="nx">rw</span><span class="o">-</span><span class="nx">conversation</span><span class="o">-</span><span class="nx">container</span> <span class="p">.</span><span class="nx">rw</span><span class="o">-</span><span class="nx">client</span><span class="p">{</span>
-  	    <span class="nx">background</span><span class="o">-</span><span class="nx">color</span><span class="p">:</span> <span class="nx">red</span><span class="p">;</span>
+![](/sundayposts/images/Adding-Chat-widget-for-RASA-bot/Untitled4.png "image")
 
-  	<span class="p">}</span>
-</code></pre></div>    </div>
-  </li>
-  <li>
-    <p><strong>Adding Video to response</strong></p>
+```jsx
+.rw-conversation-container .rw-response{
+		background-color: light;
+	}
+```
 
-    <p>sending video attachment from domain.yml</p>
+**Background bubble of user message**
 
-    <div class="language-jsx highlighter-rouge">
-<div class="highlight"><pre class="highlight"><code>  <span class="nx">utter_greet</span><span class="p">:</span>
-    <span class="o">-</span> <span class="nx">text</span><span class="p">:</span> <span class="dl">"</span><span class="s2">Hey! How are you?</span><span class="dl">"</span>
-      <span class="nx">attachment</span><span class="p">:</span> <span class="p">{</span> <span class="dl">"</span><span class="s2">type</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">video</span><span class="dl">"</span><span class="p">,</span> <span class="dl">"</span><span class="s2">payload</span><span class="dl">"</span><span class="p">:{</span> <span class="dl">"</span><span class="s2">src</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">https://youtube.com/embed/9C1Km6xfdMA</span><span class="dl">"</span> <span class="p">}</span> <span class="p">}</span>
-</code></pre></div>    </div>
+(red in this example)
 
-    <p>sending video attachment from <a href="http://actions.py/">actions.py</a>:</p>
+![](/sundayposts/images/Adding-Chat-widget-for-RASA-bot/Untitled5.png "image")
 
-    <div class="language-jsx highlighter-rouge">
-<div class="highlight"><pre class="highlight"><code>  <span class="nx">def</span> <span class="nx">run</span><span class="p">(</span><span class="nb">self</span><span class="p">,</span> <span class="nx">dispatcher</span><span class="p">:</span> <span class="nx">CollectingDispatcher</span><span class="p">,</span>
-              <span class="nx">tracker</span><span class="p">:</span> <span class="nx">Tracker</span><span class="p">,</span>
-              <span class="nx">domain</span><span class="p">:</span> <span class="nx">Dict</span><span class="p">[</span><span class="nx">Text</span><span class="p">,</span> <span class="nx">Any</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="nx">List</span><span class="p">[</span><span class="nx">Dict</span><span class="p">[</span><span class="nx">Text</span><span class="p">,</span> <span class="nx">Any</span><span class="p">]]:</span>
-          <span class="nx">msg</span><span class="o">=</span><span class="p">{</span> <span class="dl">"</span><span class="s2">type</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">video</span><span class="dl">"</span><span class="p">,</span> <span class="dl">"</span><span class="s2">payload</span><span class="dl">"</span><span class="p">:{</span> <span class="dl">"</span><span class="s2">title</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">Link name</span><span class="dl">"</span><span class="p">,</span> <span class="dl">"</span><span class="s2">src</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">https://youtube.com/embed/9C1Km6xfdMA</span><span class="dl">"</span> <span class="p">}</span> <span class="p">}</span>
-          <span class="nx">dispatcher</span><span class="p">.</span><span class="nx">utter_message</span><span class="p">(</span><span class="nx">text</span><span class="o">=</span><span class="dl">"</span><span class="s2">Hello World!</span><span class="dl">"</span><span class="p">,</span><span class="nx">attachment</span><span class="o">=</span><span class="nx">msg</span><span class="p">)</span>
+```jsx
+.rw-conversation-container .rw-client{
+	    background-color: red;
 
-          <span class="k">return</span> <span class="p">[]</span>
-</code></pre></div>    </div>
+	}
+```
+</code></pre></div></div>
 
-    <p>The link should be in embed mode not anyone other mode. Eg <a href="https://youtube.com/embed/9C1Km6xfdMA">https://youtube.com/embed/9C1Km6xfdMA</a></p>
+<h3 id="adding-video-to-response">
+<a class="anchor" href="#adding-video-to-response" aria-hidden="true"><span class="octicon octicon-link"></span></a>Adding Video to response</h3>
 
-    <p>More details, original source</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sending video attachment from domain.yml
 
-    <p><a href="https://forum.rasa.com/t/displaying-video-in-the-rasa-webchat/26931">https://forum.rasa.com/t/displaying-video-in-the-rasa-webchat/26931</a></p>
+```jsx
+utter_greet:
+  - text: "Hey! How are you?"
+    attachment: { "type":"video", "payload":{ "src": "https://youtube.com/embed/9C1Km6xfdMA" } }
+```
 
-    <p>for telegram, follow custom action code works</p>
+sending video attachment from [actions.py](http://actions.py/):
 
-    <div class="language-jsx highlighter-rouge">
-<div class="highlight"><pre class="highlight"><code>  <span class="nx">dispatcher</span><span class="p">.</span><span class="nx">utter_message</span><span class="p">(</span><span class="nx">text</span><span class="o">=</span><span class="nx">txt</span><span class="p">,</span> <span class="nx">attachment</span><span class="o">=</span><span class="dl">"</span><span class="s2">https://youtu.be/PN3S-e6I4IQ</span><span class="dl">"</span><span class="p">)</span>
-</code></pre></div>    </div>
-  </li>
-</ul>
+```jsx
+def run(self, dispatcher: CollectingDispatcher,
+            tracker: Tracker,
+            domain: Dict[Text, Any]) -&gt; List[Dict[Text, Any]]:
+        msg={ "type":"video", "payload":{ "title":"Link name", "src": "https://youtube.com/embed/9C1Km6xfdMA" } }
+        dispatcher.utter_message(text="Hello World!",attachment=msg)
+
+        return []
+```
+
+The link should be in embed mode not anyone other mode. Eg [https://youtube.com/embed/9C1Km6xfdMA](https://youtube.com/embed/9C1Km6xfdMA)   
+
+More details, original source
+
+[https://forum.rasa.com/t/displaying-video-in-the-rasa-webchat/26931](https://forum.rasa.com/t/displaying-video-in-the-rasa-webchat/26931) 
+
+for telegram, follow custom action code works
+
+```jsx
+dispatcher.utter_message(text=txt, attachment="https://youtu.be/PN3S-e6I4IQ")
+```
+</code></pre></div></div>
 
 <p>Some more info</p>
 
