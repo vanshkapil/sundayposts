@@ -4,16 +4,17 @@ description: "Tips and tricks collated from various sources "
 layout: post
 toc: false
 comments: true
-image: images/some_folder/your_image.png
+image: images/Adding-Chat-widget-for-RASA-bot/your_image.png
 hide: false
 search_exclude: false
-categories: [fastpages, jupyter, RASA]
+categories: [RASA]
 metadata_key1: metadata_value1
 metadata_key2: metadata_value2
 ---
 
-
+```jsx
 Code chat widget https://github.com/botfront/rasa-webchat
+```
 
 Here is the basic chat widget code to be placed in <Body> </Body> tags
 
@@ -66,7 +67,7 @@ Step2 - rasa run -m models --enable-api --cors "*" --debug
 
 Step3 - update endpoints
 
-![images/Adding-Chat-widget-for-RASA-bot/Untitled.png](images/Adding-Chat-widget-for-RASA-bot/Untitled.png)
+![image](images/Adding-Chat-widget-for-RASA-bot/Untitled.png)
 
 step 4 - update URL [http://localhost:5005](http://localhost:5005/) in html ( same port on which server is running)
 
