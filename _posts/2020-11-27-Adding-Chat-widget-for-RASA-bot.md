@@ -18,7 +18,7 @@ Code chat widget https://github.com/botfront/rasa-webchat
 
 Here is the basic chat widget code to be placed in <Body> </Body> tags
 
-#collapse-hide
+
 ```jsx
 <div id="webchat"></div>
 <script src="https://cdn.jsdelivr.net/npm/rasa-webchat@0.11.5/lib/index.min.js"></script>
