@@ -81,10 +81,10 @@ You should get access to container bash which may look like **rasa@d2833a965284 
 Execute the following command to create your password 
 
 ```jsx
-python3 /app/scripts/manage_users.py create me zukizuki admin --update
+python3 /app/scripts/manage_users.py create me password123 admin --update
 ```
 
-zukizuki is the password in this case 
+password123 is the password in this case, you should select a stronger one. 
 
 **exit** the bash 
 
@@ -186,7 +186,7 @@ create a docker-compose.override.yml
 version: '3.4'
 services:
   app:
-    image: 'vanshkapil/jennyaction:v1'
+    image: '<account_username>/<repository_name>:<custom_image_tag>'
     volumes:
       - './actions:/app/actions'
     expose:
