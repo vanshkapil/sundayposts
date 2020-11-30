@@ -174,10 +174,10 @@ window.onload = wrap_img;
 
 <p>Execute the following command to create your password</p>
 
-<div class="language-jsx highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">python3</span> <span class="o">/</span><span class="nx">app</span><span class="o">/</span><span class="nx">scripts</span><span class="o">/</span><span class="nx">manage_users</span><span class="p">.</span><span class="nx">py</span> <span class="nx">create</span> <span class="nx">me</span> <span class="nx">zukizuki</span> <span class="nx">admin</span> <span class="o">--</span><span class="nx">update</span>
+<div class="language-jsx highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">python3</span> <span class="o">/</span><span class="nx">app</span><span class="o">/</span><span class="nx">scripts</span><span class="o">/</span><span class="nx">manage_users</span><span class="p">.</span><span class="nx">py</span> <span class="nx">create</span> <span class="nx">me</span> <span class="nx">password123</span> <span class="nx">admin</span> <span class="o">--</span><span class="nx">update</span>
 </code></pre></div></div>
 
-<p>zukizuki is the password in this case</p>
+<p>password123 is the password in this case, you should select a stronger one.</p>
 
 <p><strong>exit</strong> the bash</p>
 
@@ -280,7 +280,7 @@ USER 1001
 <div class="language-jsx highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">version</span><span class="p">:</span> <span class="dl">'</span><span class="s1">3.4</span><span class="dl">'</span>
 <span class="nx">services</span><span class="p">:</span>
   <span class="nx">app</span><span class="p">:</span>
-    <span class="nx">image</span><span class="p">:</span> <span class="dl">'</span><span class="s1">vanshkapil/jennyaction:v1</span><span class="dl">'</span>
+    <span class="nx">image</span><span class="p">:</span> <span class="dl">'</span><span class="s1">&lt;account_username&gt;/&lt;repository_name&gt;:&lt;custom_image_tag&gt;</span><span class="dl">'</span>
     <span class="nx">volumes</span><span class="p">:</span>
       <span class="o">-</span> <span class="dl">'</span><span class="s1">./actions:/app/actions</span><span class="dl">'</span>
     <span class="nx">expose</span><span class="p">:</span>
