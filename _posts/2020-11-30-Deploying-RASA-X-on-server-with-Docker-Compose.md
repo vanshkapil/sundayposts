@@ -1,6 +1,6 @@
 --- 
 title: "Deploying RASA X on server with Docker Compose"
-description: "Tips and tricks collated from various sources"
+description: "Instructions along with resolution of bugs that I faced"
 layout: post
 toc: true
 comments: true
@@ -10,10 +10,9 @@ categories: [RASA]
 metadata_key1: metadata_value1
 metadata_key2: metadata_value2
 ---
-# Deploying RASA X on server with Docker Compose
+
 
 Install RASA X on server using Docker Compose 
-
 We'll follow the instructions [here](https://rasa.com/docs/rasa-x/installation-and-setup/install/docker-compose)
 
 ### Creating a VM on Google Cloud
